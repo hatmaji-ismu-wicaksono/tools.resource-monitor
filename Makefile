@@ -9,3 +9,7 @@ install:
 #run app.py
 run:
 	@python app.py
+
+#run in silent mode
+run-s:
+	@python app.py -s

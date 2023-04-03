@@ -3,17 +3,24 @@
 #   Author      : Hatmaji Ismu Wicaksono
 #   Date        : 2023-04-03
 #   Description :
-#       This is a simple python script 
-#       to monitor the resources usage 
+#       This is a simple python script
+#       to monitor the resources usage
 #       of your computer.
 #
 # ========== ========== ========== ==========
 
 # Import the libraries
+import argparse
 import os
-import psutil
 import csv
 import datetime
+import psutil
+
+# Get the arguments
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "-s", "--silent", help="Run monitoring in silent and save to csv file", action="store_true")
+args = parser.parse_args()
 
 # Get the current time
 directory = "output"
@@ -69,8 +76,10 @@ def monitor():
 
 # Main function
 if __name__ == "__main__":
-    function = input("Do you want to start monitoring? (y/n): ")
-    if function == "y":
-        start_monitoring()
-    else:
-        print("Monitoring Stopped")
+    if not args.silent:
+        function = input("Do you want to start monitoring? (y/n): ")
+        if function == "y":
+            start_monitoring()
+        else:
+            print("Monitoring Stopped")
+    start_monitoring()
