@@ -4,12 +4,12 @@ init:
 
 #install requirements
 install:
-	@pip install -r requirements.txt
+	@env/bin/pip install -r requirements.txt
 
 #run app.py
 run:
-	@python app.py
+	@env/bin/python app.py
 
 #run in silent mode
 run-s:
-	@python app.py -s
+	@env/bin/python app.py -s
