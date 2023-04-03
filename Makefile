@@ -13,3 +13,7 @@ run:
 #run in silent mode
 run-s:
 	@env/bin/python app.py -s
+
+#clear all output files
+clear:
+	@rm -rf output
